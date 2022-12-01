@@ -2,7 +2,7 @@ import './css/styles.css';
 import debounce from 'lodash.debounce';
 import trim from 'lodash.trim';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { createMarkup, createMarkupForOneCountry } from '/create-markup';
+import { createMarkup, createMarkupForOneCountry } from './create-markup.js';
 
 const DEBOUNCE_DELAY = 300;
 const endpoint = 'https://restcountries.com/v2/name';
