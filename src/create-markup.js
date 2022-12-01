@@ -1,4 +1,4 @@
-export const createMarkup = function (dates) {
+export function createMarkup(dates) {
   markup = dates
     .map(
       date =>
@@ -6,9 +6,9 @@ export const createMarkup = function (dates) {
     )
     .join('');
   return markup;
-};
+}
 
-export const createMarkupForOneCountry = function (dates) {
+export function createMarkupForOneCountry(dates) {
   markup = dates
     .map(
       date =>
@@ -28,4 +28,4 @@ export const createMarkupForOneCountry = function (dates) {
     )
     .join('');
   return markup;
-};
+}
