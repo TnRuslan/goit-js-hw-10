@@ -5,11 +5,14 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkup, createMarkupForOneCountry } from './create-markup';
 
 const DEBOUNCE_DELAY = 300;
+const endpoint = 'https://restcountries.com/v2/name';
 const searchParams = new URLSearchParams({
   fields: 'name,capital,population,flags,languages',
 });
+
 const countryList = document.querySelector('.country-list');
 const input = document.querySelector('#search-box');
+
 let markup = '';
 
 input.addEventListener('input', debounce(onInputValue, DEBOUNCE_DELAY));
@@ -26,10 +29,7 @@ function fetchCountries(name) {
     return;
   }
 
-  const url = `https://restcountries.com/v2/name/${trim(name)}?${searchParams}`;
-
-  fetch(url)
-    .then(response => response.json())
+  createUrl(name)
     .then(dates => {
       addMarkupByQuantity(dates);
       countryList.innerHTML = markup;
@@ -37,6 +37,11 @@ function fetchCountries(name) {
     .catch(error => {
       catchError(error);
     });
+}
+
+function createUrl(name) {
+  const requetUrl = `${endpoint}/${trim(name)}?${searchParams}`;
+  return fetch(requetUrl).then(response => response.json());
 }
 
 function catchError(error) {
