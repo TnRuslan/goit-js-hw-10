@@ -1,8 +1,6 @@
-export { createMarkup, createMarkupForOneCountry, markup };
+export let markup = '';
 
-let markup = '';
-
-function createMarkup(dates) {
+export function createMarkup(dates) {
   markup = dates
     .map(
       date =>
@@ -12,7 +10,7 @@ function createMarkup(dates) {
   return markup;
 }
 
-function createMarkupForOneCountry(dates) {
+export function createMarkupForOneCountry(dates) {
   markup = dates
     .map(
       date =>
