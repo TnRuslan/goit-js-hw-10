@@ -1,4 +1,6 @@
-export { createMarkup, createMarkupForOneCountry };
+export { createMarkup, createMarkupForOneCountry, markup };
+
+let markup = '';
 
 function createMarkup(dates) {
   markup = dates
